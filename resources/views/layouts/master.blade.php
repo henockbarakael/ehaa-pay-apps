@@ -3,17 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="generator" content="">
-    <title>finwallapp V2.0 - Mobile HTML template</title>
+    <title>Ehaa-Pay</title>
+    <meta name="description" content="Notre service de paiement en ligne vous offre une solution pratique, sécurisée et rapide pour effectuer des transactions financières sur Internet. Que vous souhaitiez acheter des produits, payer des factures, effectuer des dons ou transférer de l'argent, notre service de paiement en ligne vous permet de le faire en toute simplicité.">
+    <meta name="keywords" content="Ehaa, Ehaa-Pay, fintech">
+    <meta property="og:image" content="http://ehaa-pay.com/assets/images/logo/ehaa.png" />
+    <meta property="og:image:secure_url" content="https://ehaa-pay.com/assets/images/logo/ehaa.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="Ehaa-Pay" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="author" content="Henock BARAKAEL | barahenock@gmail.com | +243828584688">
+    <!-- favicon included here -->
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/fav.png')}}" type="image/x-icon">
+
+    <!-- apple touch icon included here -->
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/logo/fav.png')}}">
     <!-- manifest meta -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="manifest" href="manifest.json">
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/favicon180.png')}}" sizes="180x180">
-    <link rel="icon" href="{{ asset('assets/img/favicon32.png')}}" sizes="32x32" type="image/png">
-    <link rel="icon" href="{{ asset('assets/img/favicon16.png')}}" sizes="16x16" type="image/png">
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="{{ asset('assets/css2-1?family=Open+Sans:wght@300;400;600;700&display=swap')}}" rel="stylesheet">
