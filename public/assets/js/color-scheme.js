@@ -105,7 +105,7 @@ $(document).ready(function () {
 
 
 /* color style  */
-var defaultStyle = "theme-green"; // Style par défaut
+var defaultStyle = "theme-indigo"; // Style par défaut
 
 $('body').addClass(defaultStyle);
 $('input[name="color-scheme"][data-title="' + defaultStyle + '"]').prop("checked", true);
