@@ -124,8 +124,6 @@
                         <p class="small text-secondary mb-4">Ask to scan this QR-Code<br>to accept money</p>
                     </div> --}}
                     <div class="row justify-content-center mb-4">
-                        
-
                         <div class="col-auto text-center">
                             <a href="#" class="avatar avatar-70 p-1 shadow-sm shadow-purple rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
                                 <div class="icons text-purple">

@@ -1,6 +1,6 @@
 /*
 ==================================
-Table of content 
+Table of content
 ==================================
 
 1. variable
@@ -16,7 +16,7 @@ Table of content
 11. sidebar
 12. card
 13. swiper sliders
-14. list 
+14. list
 15. footer
 16. dark mode
 17. filter
@@ -10482,9 +10482,9 @@ fieldset:disabled .btn {
 }
 
 /*!
- finwallapp customize css starts here 
+ finwallapp customize css starts here
  * finwallapp v2 (https://maxartkiller.com/)
- * Copyright 2021 Maxartkiller 
+ * Copyright 2021 Maxartkiller
  */
 /* 2. variables */
 :root {
@@ -12572,8 +12572,8 @@ linearGradient stop:last-child {
 
 /* 12. card */
 .card {
-  /* background-color: rgba(0, 67, 138, 0.85); */
-  background-color: rgba(0, 138, 28, 0.85);
+  background-color: rgba(0, 67, 138, 0.85);
+  /* background-color: rgba(0, 138, 28, 0.85); */
   color: var(--finwallapp-card-text);
   border-radius: var(--finwallapp-rounded);
   border: none;
