@@ -11085,7 +11085,7 @@ body {
   background: var(--finwallapp-theme-color-grad-1);
   background: -moz-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
   background: -webkit-radial-gradient(30% 30%, ellipse cover, var(--finwallapp-theme-color-grad-1) 0%, var(--finwallapp-theme-color-grad-2) 50%, var(--finwallapp-theme-color-grad-3) 100%);
-  background: radial-gradient(ellipse at 30% 30%, #aafff3 0%, #0bde04 50%, #cbf500 100%);
+  background: radial-gradient(ellipse at 30% 30%, #aaabff 0%, #0307dc 50%, #0082f5 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--finwallapp-theme-color-grad-1)', endColorstr='var(--finwallapp-theme-color-grad-3)',GradientType=1 );
 }
 
@@ -11173,7 +11173,7 @@ main.bg-3 {
 
 .bg-theme,
 .modal-backdrop {
-  background: #00d81821 !important;
+  /* background: #00d81821 !important; */
   color: var(--finwallapp-theme-text) !important;
 }
 
