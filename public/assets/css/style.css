@@ -13546,7 +13546,7 @@ a.card {
 }
 
 .dark-mode .modal-content {
-  background-color: var(--finwallapp-theme-color);
+  background-color: #0d100f;
 }
 
 .dark-mode .modal-content .modal-header {

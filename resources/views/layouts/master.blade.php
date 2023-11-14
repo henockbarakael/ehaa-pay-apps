@@ -118,40 +118,42 @@
         <div class="modal-dialog modal-sm modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content shadow">
                 <div class="modal-body">
-                    <h1 class="mb-4"><span class="text-secondary fw-light">Quick</span><br>Actions!</h1>
-                    <div class="text-center">
-                        <img src="{{ asset('assets/img/QRCode.png')}}" alt="" class="mb-2">
+                    <h1 class="mb-4"><span class="text-secondary fw-light">Action</span><br>Rapide!</h1>
+                    {{-- <div class="text-center">
+                        <img src="assets/img/QRCode.png" alt="" class="mb-2">
                         <p class="small text-secondary mb-4">Ask to scan this QR-Code<br>to accept money</p>
-                    </div>
+                    </div> --}}
                     <div class="row justify-content-center mb-4">
-                        <div class="col-auto text-center">
-                            <a href="bills.html" class="avatar avatar-70 p-1 shadow-sm shadow-danger rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
-                                <div class="icons text-danger">
-                                    <i class="bi bi-receipt-cutoff size-24"></i>
-                                </div>
-                            </a>
-                            <p class="size-10 text-secondary">Pay Bill</p>
-                        </div>
+                        
 
                         <div class="col-auto text-center">
-                            <a href="sendmoney.html" class="avatar avatar-70 p-1 shadow-sm shadow-purple rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
+                            <a href="#" class="avatar avatar-70 p-1 shadow-sm shadow-purple rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
                                 <div class="icons text-purple">
                                     <i class="bi bi-arrow-up-right size-24"></i>
                                 </div>
                             </a>
-                            <p class="size-10 text-secondary">Send Money</p>
+                            <p class="size-10 text-secondary">Envoi d'argent</p>
                         </div>
 
                         <div class="col-auto text-center">
-                            <a href="receivemoney.html" class="avatar avatar-70 p-1 shadow-sm shadow-success rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
-                                <div class="icons text-success">
-                                    <i class="bi bi-arrow-down-left size-24"></i>
+                            <a href="#" class="avatar avatar-70 p-1 shadow-sm shadow-purple rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
+                                <div class="icons text-warning">
+                                    <i class="bi bi-bag-plus  size-24"></i>
                                 </div>
                             </a>
-                            <p class="size-10 text-secondary">Receive Money</p>
+                            <p class="size-10 text-secondary">Faire un dépôt</p>
+                        </div>
+
+                        <div class="col-auto text-center">
+                            <a href="withdraw.html" class="avatar avatar-70 p-1 shadow-sm shadow-secondary rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
+                                <div class="icons text-secondary">
+                                    <i class="bi bi-arrow-down-right size-24"></i>
+                                </div>
+                            </a>
+                            <p class="size-10 text-secondary">Retrait d'argent</p>
                         </div>
                     </div>
-                    <div class="row justify-content-center mb-2">
+                    {{-- <div class="row justify-content-center mb-2">
                         <div class="col-auto text-center">
                             <a href="withdraw.html" class="avatar avatar-70 p-1 shadow-sm shadow-secondary rounded-20 bg-opac mb-2" data-bs-dismiss="modal">
                                 <div class="icons text-secondary">
@@ -178,7 +180,7 @@
                             </div>
                             <p class="size-10 text-secondary">Recharge</p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -186,10 +188,10 @@
     <!-- Footer ends-->
 
     <!-- PWA app install toast message -->
-    <div class="position-fixed bottom-0 start-50 translate-middle-x  z-index-99">
+    {{-- <div class="position-fixed bottom-0 start-50 translate-middle-x  z-index-99">
         <div class="toast mb-3" role="alert" aria-live="assertive" aria-atomic="true" id="toastinstall" data-bs-animation="true">
             <div class="toast-header">
-                <img src="{{ asset('assets/img/favicon32.png')}}" class="rounded me-2" alt="...">
+                <img src="assets/img/favicon32.png" class="rounded me-2" alt="...">
                 <strong class="me-auto">Install PWA App</strong>
                 <small>now</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -205,7 +207,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Required jquery and libraries -->
     <script src="{{ asset('assets/js/jquery-3.3.1.min.js')}}"></script>

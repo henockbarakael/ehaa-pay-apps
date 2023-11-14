@@ -114,68 +114,68 @@ $(window).on('load', function () {
 
         case "index":
             /* Progress circle */
-            var progresssaving = new ProgressBar.Circle(circlesaving, {
-                color: '#000000',
-                // This has to be the same size as the maximum width to
-                // prevent clipping
-                strokeWidth: 6,
-                trailWidth: 6,
-                easing: 'easeInOut',
-                trailColor: '#FFD6DF',
-                duration: 1400,
-                text: {
-                    autoStyleContainer: false
-                },
-                from: { color: '#FF345E', width: 6 },
-                to: { color: '#FF345E', width: 6 },
-                // Set default step function for all animate calls
-                step: function (state, circle) {
-                    circle.path.setAttribute('stroke', state.color);
-                    circle.path.setAttribute('stroke-width', state.width);
+            // var progresssaving = new ProgressBar.Circle(circlesaving, {
+            //     color: '#000000',
+            //     // This has to be the same size as the maximum width to
+            //     // prevent clipping
+            //     strokeWidth: 6,
+            //     trailWidth: 6,
+            //     easing: 'easeInOut',
+            //     trailColor: '#FFD6DF',
+            //     duration: 1400,
+            //     text: {
+            //         autoStyleContainer: false
+            //     },
+            //     from: { color: '#FF345E', width: 6 },
+            //     to: { color: '#FF345E', width: 6 },
+            //     // Set default step function for all animate calls
+            //     step: function (state, circle) {
+            //         circle.path.setAttribute('stroke', state.color);
+            //         circle.path.setAttribute('stroke-width', state.width);
 
-                    var value = Math.round(circle.value() * 100);
-                    if (value === 0) {
-                        circle.setText('');
-                    } else {
-                        circle.setText(value + "<small class='size-12'>%<small>");
-                    }
+            //         var value = Math.round(circle.value() * 100);
+            //         if (value === 0) {
+            //             circle.setText('');
+            //         } else {
+            //             circle.setText(value + "<small class='size-12'>%<small>");
+            //         }
 
-                }
-            });
-            progresssaving.text.style.fontSize = '24px';
-            progresssaving.animate(0.65);  // Number from 0.0 to 1.0
+            //     }
+            // });
+            // progresssaving.text.style.fontSize = '24px';
+            // progresssaving.animate(0.65);  // Number from 0.0 to 1.0
 
-            /* Progress circle */
-            var progresssaving2 = new ProgressBar.Circle(circlesaving2, {
-                color: '#000000',
-                // This has to be the same size as the maximum width to
-                // prevent clipping
-                strokeWidth: 6,
-                trailWidth: 6,
-                easing: 'easeInOut',
-                trailColor: '#ffedc0',
-                duration: 1400,
-                text: {
-                    autoStyleContainer: false
-                },
-                from: { color: '#ffbd17', width: 6 },
-                to: { color: '#ffbd17', width: 6 },
-                // Set default step function for all animate calls
-                step: function (state, circle) {
-                    circle.path.setAttribute('stroke', state.color);
-                    circle.path.setAttribute('stroke-width', state.width);
+            // /* Progress circle */
+            // var progresssaving2 = new ProgressBar.Circle(circlesaving2, {
+            //     color: '#000000',
+            //     // This has to be the same size as the maximum width to
+            //     // prevent clipping
+            //     strokeWidth: 6,
+            //     trailWidth: 6,
+            //     easing: 'easeInOut',
+            //     trailColor: '#ffedc0',
+            //     duration: 1400,
+            //     text: {
+            //         autoStyleContainer: false
+            //     },
+            //     from: { color: '#ffbd17', width: 6 },
+            //     to: { color: '#ffbd17', width: 6 },
+            //     // Set default step function for all animate calls
+            //     step: function (state, circle) {
+            //         circle.path.setAttribute('stroke', state.color);
+            //         circle.path.setAttribute('stroke-width', state.width);
 
-                    var value = Math.round(circle.value() * 100);
-                    if (value === 0) {
-                        circle.setText('');
-                    } else {
-                        circle.setText(value + "<small class='size-12'>%<small>");
-                    }
+            //         var value = Math.round(circle.value() * 100);
+            //         if (value === 0) {
+            //             circle.setText('');
+            //         } else {
+            //             circle.setText(value + "<small class='size-12'>%<small>");
+            //         }
 
-                }
-            });
-            progresssaving2.text.style.fontSize = '24px';
-            progresssaving2.animate(0.82);  // Number from 0.0 to 1.0
+            //     }
+            // });
+            // progresssaving2.text.style.fontSize = '24px';
+            // progresssaving2.animate(0.82);  // Number from 0.0 to 1.0
 
             /* swiper carousel connectionwiper */
             var swiper2 = new Swiper(".connectionwiper", {
