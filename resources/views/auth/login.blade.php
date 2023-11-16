@@ -38,7 +38,8 @@
                 @endif
             </p>
 
-            <button type="button" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');">
+            {{-- <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');"> --}}
+            <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" >
                 Connexion
             </button>
         </form>
