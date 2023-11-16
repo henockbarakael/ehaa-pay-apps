@@ -1,48 +1,62 @@
-<x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
-
-        <x-validation-errors class="mb-4" />
-
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
+@extends('layouts.app')
+@section('content')
+<div class="row h-100 overflow-auto">
+    <div class="col-12 text-center mb-auto px-0">
+        <header class="header">
+            <div class="row">
+                <div class="col-auto"></div>
+                <div class="col">
+                    <div class="logo-small">
+                        <img src="{{ asset('assets/img/logo.png')}}" alt="">
+                        <h5>FiMobile</h5>
+                    </div>
+                </div>
+                <div class="col-auto"></div>
             </div>
-        @endif
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            </div>
-
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+        </header>
+    </div>
+    <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center text-center py-4">
+        <h1 class="mb-4 text-color-theme">Sign in</h1>
+        <form class="was-validated needs-validation" novalidate="">
+            <div class="form-group form-floating mb-3 is-valid">
+                <input type="text" class="form-control" value="maxartkiller" id="email" placeholder="Username">
+                <label class="form-control-label" for="email">Username</label>
             </div>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
+            <div class="form-group form-floating is-invalid mb-3">
+                <input type="password" class="form-control " id="password" placeholder="Password">
+                <label class="form-control-label" for="password">Password</label>
+                <button type="button" class="text-danger tooltip-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Enter valid Password" id="passworderror">
+                    <i class="bi bi-info-circle"></i>
+                </button>
             </div>
+            <p class="mb-3 text-center">
+                <a href="forgot-password.html" class="">
+                    Forgot your password?
+                </a>
+            </p>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-button class="ms-4">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
+            <button type="button" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');">
+                Sign in
+            </button>
         </form>
-    </x-authentication-card>
-</x-guest-layout>
+        <p class="mb-2 text-muted">Don't have account?</p>
+        <a href="signup.html" target="_self" class="">
+            Sign up <i class="bi bi-arrow-right"></i>
+        </a>
+
+    </div>
+    <div class="col-12 text-center mt-auto">
+        <div class="row justify-content-center footer-info">
+            <div class="col-auto">
+                <p class="text-muted">Or you can continue with </p>
+            </div>
+            <div class="col-auto ps-0">
+                <a href="#" class="p-1"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="p-1"><i class="bi bi-google"></i></a>
+                <a href="#" class="p-1"><i class="bi bi-facebook"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
