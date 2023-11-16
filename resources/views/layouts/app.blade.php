@@ -42,7 +42,7 @@
     <body class="body-scroll d-flex flex-column h-100" data-page="signin">
 
         <!-- loader section -->
-        @include('layouts.header')
+        @include('layouts.loader')
         <!-- loader section ends -->
     
         <!-- Begin page content -->
