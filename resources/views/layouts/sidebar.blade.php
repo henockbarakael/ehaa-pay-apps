@@ -10,12 +10,12 @@
                         <div class="row">
                             <div class="col-auto">
                                 <figure class="avatar avatar-44 rounded-15">
-                                    <img src="{{ asset('assets/img/user1.jpg')}}" alt="">
+                                    <img src="{{ asset('assets/img/photo_defaults.jpg')}}" alt="">
                                 </figure>
                             </div>
                             <div class="col px-0 align-self-center">
-                                <p class="mb-1">Maxartkiller</p>
-                                <p class="text-muted size-12">New York City, US</p>
+                                <p class="mb-1">Admin</p>
+                                <p class="text-muted size-12">Kinshasa-RDC</p>
                             </div>
                             <div class="col-auto">
                                 <button class="btn btn-44 btn-light">
@@ -34,7 +34,7 @@
                                     <p class="text-muted">Wallet Balance</p>
                                 </div>
                                 <div class="col text-end">
-                                    <p class="text-muted"><a href="addmoney.html">+ Top up</a>
+                                    <p class="text-muted"><a href="">+ Top up</a>
                                     </p>
                                 </div>
                             </div>
@@ -59,26 +59,26 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-person"></i></div>
-                            <div class="col">Account</div>
+                            <div class="col">Mon Compte</div>
                             <div class="arrow"><i class="bi bi-plus plus"></i> <i class="bi bi-dash minus"></i>
                             </div>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item nav-link" href="profile.html">
+                            <li><a class="dropdown-item nav-link" href="">
                                     <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar2"></i></div>
                                     <div class="col">Profile</div>
                                     <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                 </a></li>
-                            <li><a class="dropdown-item nav-link" href="settings.html">
+                            <li><a class="dropdown-item nav-link" href="">
                                     <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar-check"></i>
                                     </div>
-                                    <div class="col">Settings</div>
+                                    <div class="col">Paramètre</div>
                                     <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                 </a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="chat.html" tabindex="-1">
+                        <a class="nav-link" href="" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-chat-text"></i></div>
                             <div class="col">Messages</div>
                             <div class="arrow"><i class="bi bi-chevron-right"></i></div>
@@ -86,7 +86,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="notifications.html" tabindex="-1">
+                        <a class="nav-link" href="" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-bell"></i></div>
                             <div class="col">Notification</div>
                             <div class="arrow"><i class="bi bi-chevron-right"></i></div>
@@ -94,9 +94,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="signin.html" tabindex="-1">
+                        <a class="nav-link" href="" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-box-arrow-right"></i></div>
-                            <div class="col">Logout</div>
+                            <div class="col">Déconnexion</div>
                             <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                         </a>
                     </li>

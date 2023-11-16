@@ -6,12 +6,12 @@
                     <div class="row">
                         <div class="col-auto">
                             <figure class="avatar avatar-44 rounded-10">
-                                <img src="{{ asset('assets/img/user1.jpg')}}" alt="">
+                                <img src="{{ asset('assets/img/photo_defaults.jpg')}}" alt="">
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <p class="mb-0 text-color-theme">Maxartkiller</p>
-                            <p class="text-muted size-12">New York City, US</p>
+                            <p class="mb-0 text-color-theme">Admin</p>
+                            <p class="text-muted size-12">Kinshasa-RDC</p>
                         </div>
                         <div class="col-auto">
                             <a href="addmoney.html" class="btn btn-44 btn-light shadow-sm">
