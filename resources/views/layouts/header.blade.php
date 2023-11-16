@@ -5,15 +5,15 @@
                 <i class="bi bi-list"></i>
             </a>
         </div>
-        <div class="col text-center">
+        <div class="col align-self-center text-center">
             <div class="logo-small">
-                <img src="{{ asset('assets/img/ehaa.png')}}" alt="">
-                <!-- <h5><span class="text-secondary fw-light">EHAA-PAY</span><br>Fintech</h5> -->
+                <img src="{{ asset('assets/img/logo-sm.png')}}" alt="">
+                <h5>Ehaa-Pay</h5>
             </div>
         </div>
         <div class="col-auto">
-            <a href="profile.html" target="_self" class="btn btn-light btn-44">
-                <i class="bi bi-person-circle"></i>
+            <a href="notifications.html" target="_self" class="btn btn-light btn-44">
+                <i class="bi bi-bell"></i>
                 <span class="count-indicator"></span>
             </a>
         </div>
