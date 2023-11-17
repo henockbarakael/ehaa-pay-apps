@@ -31,6 +31,7 @@ $(window).on('load', function () {
                 boundary: document.body // or document.querySelector('#boundary')
             })
             break;
+            
         case "verify":
 
             document.getElementById('timer').innerHTML = '03' + ':' + '00';

@@ -38,6 +38,8 @@
 
     <!-- style css for this template -->
     <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" id="style">
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+    
     <style>.barak-mode {
         --fimobile-sidebar: var(--fimobile-theme-color);
         --fimobile-sidebar-text: #ffffff;
@@ -318,5 +320,7 @@
 
     <!-- page level custom script -->
     <script src="{{ asset('assets/js/app.js')}}"></script>
-
+    <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    
+    @yield('script')
 </body>

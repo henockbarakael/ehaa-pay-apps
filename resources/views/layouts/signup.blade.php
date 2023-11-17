@@ -38,8 +38,9 @@
     
         <!-- style css for this template -->
         <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" id="style">
+        <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
     </head>
-    <body class="body-scroll d-flex flex-column h-100" data-page="signin">
+    <body class="body-scroll d-flex flex-column h-100" data-page="signup">
 
         <!-- loader section -->
         @include('layouts.loader')
@@ -74,9 +75,10 @@
 
         <!-- swiper js script -->
         <script src="{{ asset('assets/vendor/swiperjs-6.6.2/swiper-bundle.min.js')}}"></script>
+        <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
 
         <!-- page level custom script -->
         <script src="{{ asset('assets/js/app.js')}}"></script>
-    
+        @yield('script')
     </body>
 </html>

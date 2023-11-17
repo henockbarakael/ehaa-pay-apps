@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('customer_auths', function (Blueprint $table) {
-            $table->renameColumn('username', 'client_id');
-            $table->renameColumn('password', 'client_secret');
+            // Ajouter une nouvelle colonne "client_id"
+            $table->string('client_id')->nullable();
+            $table->string('client_secret')->nullable();
+            // Supprimer l'ancienne colonne "client_id"
+            $table->dropColumn('username');
+            $table->dropColumn('password');
         });
     }
 
@@ -23,8 +27,12 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('customer_auths', function (Blueprint $table) {
-            $table->renameColumn('client_id', 'username');
-            $table->renameColumn('client_secret', 'password');
+            // Ajouter une nouvelle colonne "mode_administration"
+            $table->string('username');
+            $table->string('password');
+            // Supprimer la nouvelle colonne "mode_administration_id"
+            $table->dropColumn('client_id');
+            $table->dropColumn('client_secret');
         });
     }
 };

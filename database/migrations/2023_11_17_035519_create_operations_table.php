@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('currency');
             $table->timestamps();
 
-            $table->foreign('account_id')->references('id')->on('ehaa_pay_accounts');
+            $table->foreign('account_id')->references('id')->on('accounts');
         });
     }
 

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.signin')
 @section('content')
 <div class="row h-100 overflow-auto">
     <div class="col-12 text-center mb-auto px-0">
@@ -17,18 +17,19 @@
     </div>
     <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center text-center py-4">
         <h1 class="mb-4 text-color-theme">Connexion</h1>
-        <form class="was-validated needs-validation" novalidate="">
-            <div class="form-group form-floating mb-3 is-valid">
-                <input type="text" class="form-control"  id="username" name="username" placeholder="Nom d'utilisateur" required autofocus autocomplete="username">
+        {{-- <form action="{{route('signin')}}" method="POST" class="was-validated needs-validation" novalidate=""> --}}
+        <form id="login-form" class="was-validated needs-validation" novalidate="">
+            @csrf
+            <div class="form-group form-floating mb-4 is-valid">
+                <input type="text" class="form-control @error('username') is-invalid @enderror"  id="username" name="username" placeholder="Nom d'utilisateur" required autofocus autocomplete="username">
                 <label class="form-control-label" for="username">Nom d'utilisateur</label>
+                <span id="usernameerror" class="text-danger text-center" data-bs-toggle="tooltip" data-bs-placement="top" ></span>
             </div>
 
-            <div class="form-group form-floating is-invalid mb-3">
-                <input type="password" class="form-control " id="password" placeholder="Password" required autocomplete="current-password">
+            <div class="form-group form-floating is-valid mb-3">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" required autocomplete="current-password" placeholder="*********">
                 <label class="form-control-label" for="password">Mot de passe</label>
-                <button type="button" class="text-danger tooltip-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Enter valid Password" id="passworderror">
-                    <i class="bi bi-info-circle"></i>
-                </button>
+                <span id="passworderror" class="text-danger text-center" data-bs-toggle="tooltip" data-bs-placement="top" ></span>
             </div>
             <p class="mb-3 text-center">
                 @if (Route::has('password.request'))
@@ -39,7 +40,7 @@
             </p>
 
             {{-- <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');"> --}}
-            <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" >
+            <button id="submit-button" type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" >
                 Connexion
             </button>
         </form>
@@ -50,4 +51,123 @@
 
     </div>
 </div>
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('[data-bs-toggle="tooltip"]').tooltip();
+        $('#submit-button').click(function(e) {
+            e.preventDefault();
+            
+            var formData = $('#login-form').serialize();
+            
+            $.ajax({
+                url: "{{ route('signin') }}",
+                type: "POST",
+                data: formData,
+                success: function(response) {
+                    // Traitement réussi
+                    console.log(response);
+                    if (response.success) {
+                        toastr.success(
+                            response.message, 'Success'
+                        ).then(function() {
+                            window.location.href = response.redirect;
+                        });
+                    } else {
+                        toastr.error(response.errors, 'Error');
+                    }
+                    
+                },
+                error: function(xhr, status, error) {
+                    var response = xhr.responseJSON;
+                    if (response && response.errors) {
+                        if (response.errors.username) {
+                            var usernameError = response.errors.username[0];
+                            $('#username').addClass('is-invalid'); // Ajoute la classe d'erreur
+                            $('#usernameerror')
+                                .attr('title', usernameError)
+                                .tooltip('show');
+                        } else {
+                            $('#username').removeClass('is-invalid'); // Supprime la classe d'erreur
+                            $('#usernameerror').tooltip('hide');
+                        }
+                        
+                        if (response.errors.password) {
+                            var passwordError = response.errors.password[0];
+                            $('#password').addClass('is-invalid'); // Ajoute la classe d'erreur
+                            $('#passworderror')
+                                .attr('title', passwordError)
+                                .tooltip('show');
+                        } else {
+                            $('#password').removeClass('is-invalid'); // Supprime la classe d'erreur
+                            $('#passworderror').tooltip('hide');
+                        }
+                    } else {
+                        toastr.error('An error occurred.', 'Error');
+                    }
+                }
+            });
+        });
+
+        // Ajoutez un gestionnaire d'événement pour masquer les messages d'erreur lors de la saisie dans les champs
+        $('#username, #password').on('input', function() {
+            var input = $(this);
+            var errorField = $('#' + input.attr('id') + 'error');
+            
+            if (input.val().trim() !== '') {
+                input.removeClass('is-invalid');
+                errorField.tooltip('dispose'); // Supprime le tooltip
+            } else {
+                input.addClass('is-invalid');
+                errorField.tooltip('show');
+            }
+        });
+        
+        // Ajoutez un gestionnaire d'événement pour masquer le message d'erreur lors de la saisie dans le champ username
+        $('#username').on('focus', function() {
+            var input = $(this);
+            var errorField = $('#' + input.attr('id') + 'error');
+            
+            if (input.val().trim() === '') {
+                input.removeClass('is-invalid');
+                errorField.tooltip('dispose'); // Supprime le tooltip
+            }
+        });
+        
+        // Ajoutez un gestionnaire d'événement pour masquer le message d'erreur lors de la saisie dans le champ password
+        $('#password').on('focus', function() {
+            var input = $(this);
+            var errorField = $('#' + input.attr('id') + 'error');
+            
+            if (input.val().trim() === '') {
+                input.removeClass('is-invalid');
+                errorField.tooltip('dispose'); // Supprime le tooltip
+            }
+        });
+        
+        // Ajoutez un gestionnaire d'événement pour afficher le message d'erreur lorsque le champ username perd le focus
+        $('#username').on('blur', function() {
+            var input = $(this);
+            var errorField = $('#' + input.attr('id') + 'error');
+            
+            if (input.val().trim() === '') {
+                input.addClass('is-invalid'); // Ajoute la classe d'erreur
+                errorField.tooltip('show');
+            }
+        });
+        
+        // Ajoutez un gestionnaire d'événement pour afficher le message d'erreur lorsque le champ password perd le focus
+        $('#password').on('blur', function() {
+            var input = $(this);
+            var errorField = $('#' + input.attr('id') + 'error');
+            
+            if (input.val().trim() === '') {
+                input.addClass('is-invalid'); // Ajoute la classe d'erreur
+                errorField.tooltip('show');
+            }
+        });
+     
+});
+</script>
+@endsection
 @endsection

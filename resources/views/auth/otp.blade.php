@@ -1,0 +1,49 @@
+@extends('layouts.signin')
+@section('content')
+<div class="row h-100">
+    <div class="col-12 text-center mb-auto px-0">
+        <header class="header">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="signin.html" target="_self" class="btn btn-light btn-44">
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                </div>
+                <div class="col align-self-center">
+                    <h5>OTP Verification</h5>
+                </div>
+                <div class="col-auto">
+                    <a class="btn btn-light btn-44 invisible"></a>
+                </div>
+            </div>
+        </header>
+    </div>
+    <form action="{{route('verify.otp')}}" class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto align-self-center text-center py-4">
+        @csrf
+        <h1 class="mb-4 text-color-theme">Verify OTP</h1>
+        <p class="text-muted mb-4">Verify OTP sent to your provided email address and phone number</p>
+
+        <div class="form-floating is-valid mb-3">
+            <input type="text" name="otp" class="form-control" value="123456" placeholder="Enter OTP" id="otp">
+            <label for="otp">Enter OTP</label>
+        </div>
+        <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('thankyou2.html');">
+            Verify
+        </button>
+    </form>
+    <div class="col-12 text-center mt-auto">
+        <div class="row justify-content-center footer-info">
+            <div class="col-auto text-center">
+                <span class="progressstimer">
+                    <img src="assets/img/progress.png" alt="">
+                    <span class="timer" id="timer">3:00</span>
+                </span>
+                <br>
+                <p class="mb-3"><span class="text-muted">Didn't received yet?</span> <a href="">Resend OTP</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
