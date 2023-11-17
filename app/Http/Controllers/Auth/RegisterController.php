@@ -99,13 +99,15 @@ class RegisterController extends Controller
             'confirmpassword' => 'required|same:password',
         ]);
 
+        
+
         $username = $this->generateUsername($validatedData['first_name'], $validatedData['last_name']);
 
         $verify_number = new VerifyNumberController;
         $phone_number = $verify_number->verify_number($validatedData['phone_number']);
 
         try {
-            $user = User::create([
+            $user = User::insert([
                 'username' => $username,
                 'firstname' => $validatedData['first_name'],
                 'lastname' => $validatedData['last_name'],
@@ -113,6 +115,8 @@ class RegisterController extends Controller
                 'phone_number' => $phone_number,
                 'password' => bcrypt($validatedData['password']),
             ]);
+
+            dd($user);
             
             $firstname = $user->firstname;
             $lastname = $user->lastname;
@@ -126,6 +130,8 @@ class RegisterController extends Controller
                 'phone_number' => $phone_number,
                 'user_id' => $user_id,
             ];
+
+            dd($data );
             
             $response = Http::post($endpoint, $data);
             $result = $response->json();
@@ -141,6 +147,7 @@ class RegisterController extends Controller
         
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
+            Alert::error('Erreur lors de la création de l\'utilisateur '.$errorMessage)->autoClose(3000);
             Log::error('Erreur lors de la création de l\'utilisateur: ' . $errorMessage);
             return redirect()->back();
         }
