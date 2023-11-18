@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -27,7 +28,8 @@ class HomeController extends Controller
     {
         $user_id = Auth::user()->id;
         $url = str_replace('{user_id}', $user_id, 'https://api.ehaa-pay.com/service/user/{user_id}/accounts');
-        $response = Http::get($url);
+        $client = new Client(['verify' => false]);
+        $response = $client->get($url);
         if ($response->successful()) {
             $data = $response->json();
             $balance = $data['balances_by_currency'];
