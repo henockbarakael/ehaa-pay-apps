@@ -128,15 +128,15 @@
                             <img src="{{ asset('assets/img/centerbutton.svg')}}" class="nav-icon" alt="">
                         </span>
                         <div class="nav-menu-popover justify-content-between">
-                            <button type="button" class="btn btn-lg btn-icon-text" onclick="window.location.replace('pay.html');">
+                            <button type="button" class="btn btn-lg btn-icon-text">
                                 <i class="bi bi-arrow-up-right-circle size-32"></i><span>Envois</span>
                             </button>
 
-                            <button type="button" class="btn btn-lg btn-icon-text" onclick="window.location.replace('sendmoney.html');">
+                            <button type="button" class="btn btn-lg btn-icon-text" >
                                 <i class="bi bi-plus-circle size-32"></i><span>Recharge</span>
                             </button>
 
-                            <button type="button" class="btn btn-lg btn-icon-text" onclick="window.location.replace('receivemoney.html');">
+                            <button type="button" class="btn btn-lg btn-icon-text">
                                 <i class="bi bi-arrow-down-left-circle size-32"></i><span>Retrait</span>
                             </button>
                         </div>

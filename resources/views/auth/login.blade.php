@@ -40,7 +40,6 @@
                 @endif
             </p>
 
-            {{-- <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');"> --}}
             <button id="submit-button" type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" >
                 <span id="loader" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span> Connexion
             </button>
