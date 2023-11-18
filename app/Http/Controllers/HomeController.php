@@ -34,9 +34,9 @@ class HomeController extends Controller
 
         if ($statusCode >= 200 && $statusCode < 300) {
             $data = $response->getBody()->getContents();
-            dd($data);
-            $balance = $data['balances_by_currency'];
-            $account = $data['account_codes'];
+            $responseData = json_decode($data, true);
+            $balance = $responseData['balances_by_currency'];
+            $account = $responseData['account_codes'];
             return view('welcome', compact('balance', 'account'));
         }
     }
