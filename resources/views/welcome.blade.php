@@ -110,7 +110,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col align-self-center">
-                                    <h1>Recharge</h1>
+                                    <h1>Recharge facile</h1>
                                     <p class="size-12 text-muted">
                                         Rechargez votre compte à partir<br> de n'importe quel <br>opérateur mobile money.
                                     </p>
@@ -119,7 +119,7 @@
                                     </div>
                                 </div>
                                 <div class="col-6 align-self-center ps-0">
-                                    <img src="{{ asset('assets/img/offergraphics-1.png')}}" alt="" class="mw-100">
+                                    <img src="{{ asset('assets/img/offergraphics-1.png')}}" alt="" class="mw-50">
                                 </div>
                             </div>
                         </div>
