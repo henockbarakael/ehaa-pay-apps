@@ -106,7 +106,7 @@
         <div class="container">
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">
+                    <a class="nav-link {{ request()->routeIs('accueil') ? 'active' : '' }}" href="{{ route('accueil') }}">
                         <span>
                             <i class="nav-icon bi bi-house"></i>
                             <span class="nav-text">Accueil</span>
@@ -114,7 +114,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {{ request()->routeIs('history') ? 'active' : '' }}" href="{{ route('history') }}">
                         <span>
                             <i class="nav-icon bi bi-laptop"></i>
                             <span class="nav-text">Historique</span>
@@ -143,15 +143,15 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#l">
+                    <a class="nav-link {{ request()->routeIs('kelasi') ? 'active' : '' }}" href="{{ route('kelasi') }}">
                         <span>
                             <i class="nav-icon bi bi-gift"></i>
-                            <span class="nav-text">Rewards</span>
+                            <span class="nav-text">Kelasi</span>
                         </span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link {{ request()->routeIs('wallet') ? 'active' : '' }}" href="{{ route('wallet') }}">
                         <span>
                             <i class="nav-icon bi bi-wallet2"></i>
                             <span class="nav-text">Wallet</span>

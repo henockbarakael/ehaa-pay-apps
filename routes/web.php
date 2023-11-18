@@ -32,4 +32,7 @@ Route::post('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class,
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('accueil');
+    Route::get('/kelasi', [App\Http\Controllers\HomeController::class, 'index'])->name('kelasi');
+    Route::get('/wallet', [App\Http\Controllers\HomeController::class, 'index'])->name('wallet');
+    Route::get('/history', [App\Http\Controllers\HomeController::class, 'index'])->name('history');
 });
