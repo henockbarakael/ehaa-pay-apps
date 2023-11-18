@@ -112,7 +112,7 @@
                                 <div class="col align-self-center">
                                     <h1>Recharge</h1>
                                     <p class="size-12 text-muted">
-                                        Rechargez votre <br>compte à partir<br> de n'importe quel <br>opérateur mobile money.
+                                        Rechargez votre compte à partir de n'importe quel <br>opérateur mobile money.
                                     </p>
                                     <div class="tag border-dashed border-opac">
                                         Ehaa-Pay
