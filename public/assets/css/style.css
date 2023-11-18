@@ -11224,7 +11224,7 @@ a {
 
 a,
 .text-color-theme {
-  color: var(--fimobile-theme-color);
+  /* color: var(--fimobile-theme-color); */
 }
 
 .fw-medium {
@@ -11621,7 +11621,7 @@ main {
 }
 
 .btn-default {
-  background-color: var(--fimobile-theme-color);
+  background-color: #059f16b0;
   color: var(--fimobile-theme-text);
 }
 
@@ -11885,7 +11885,7 @@ main {
   height: 100%;
   width: 100%;
   z-index: 0;
-  background-color: #1fa903;
+  background-color:#0f5700;
 }
 
 .loader-wrap > div {
@@ -13370,9 +13370,9 @@ a.card {
 }
 
 .dark-mode .btn-light {
-  background-color: var(--fimobile-page-bg-2);
+  background-color: #045533;
   color: var(--fimobile-theme-text);
-  border-color: var(--fimobile-page-bg-2);
+  border-color: #045533;
 }
 
 .dark-mode .bg-light {
