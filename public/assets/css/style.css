@@ -11280,7 +11280,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   overflow-y: auto;
-  background-color: var(--fimobile-theme-color);
+  background-color: #072213;
 }
 
 main {
@@ -13065,7 +13065,7 @@ a.card {
   height: auto;
   padding: var(--fimobile-padding);
   border-radius: var(--fimobile-rounded);
-  background-color: var(--fimobile-theme-color-2);
+  background-color: #035614;
   color: var(--fimobile-theme-text);
   position: absolute;
   bottom: 100%;
@@ -13076,7 +13076,7 @@ a.card {
 }
 
 .footer .nav .nav-item.centerbutton .nav-link.active {
-  background-color: var(--fimobile-theme-color-2);
+  background-color: #035614;
 }
 
 .footer .nav .nav-item.centerbutton .nav-link.active::after {
@@ -13086,7 +13086,7 @@ a.card {
   top: 0;
   width: 20px;
   height: 20px;
-  background-image: radial-gradient(ellipse at 0% 100%, transparent 0%, transparent 70%, var(--fimobile-theme-color-2) 72%);
+  background-image: radial-gradient(ellipse at 0% 100%, transparent 0%, transparent 70%, #035614 72%);
 }
 
 .footer .nav .nav-item.centerbutton .nav-link.active::before {
@@ -13420,7 +13420,7 @@ a.card {
 }
 
 .dark-mode .modal-content {
-  background-color: var(--fimobile-theme-bordercolor)
+  background-color: #035614;
 }
 
 .dark-mode .modal-content .modal-header {
