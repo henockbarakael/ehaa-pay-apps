@@ -11341,7 +11341,7 @@ main {
   background: var(--fimobile-theme-color-grad-1);
   background: -moz-radial-gradient(30% 30%, ellipse cover, var(--fimobile-theme-color-grad-1) 0%, var(--fimobile-theme-color-grad-2) 50%, var(--fimobile-theme-color-grad-3) 100%);
   background: -webkit-radial-gradient(30% 30%, ellipse cover, var(--fimobile-theme-color-grad-1) 0%, var(--fimobile-theme-color-grad-2) 50%, var(--fimobile-theme-color-grad-3) 100%);
-  background: radial-gradient(ellipse at 30% 30%, var(--fimobile-theme-color-grad-1) 0%, var(--fimobile-theme-color-grad-2) 50%, var(--fimobile-theme-color-grad-3) 100%);
+  background: radial-gradient(ellipse at 30% 30%, #28690a 0%, #072700 50%, #2f4f1f 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='var(--fimobile-theme-color-grad-1)', endColorstr='var(--fimobile-theme-color-grad-3)',GradientType=1 );
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -12956,7 +12956,7 @@ a.card {
   width: 100%;
   z-index: 9;
   border-radius: var(--fimobile-rounded) var(--fimobile-rounded) 0 0;
-  background-color: var(--fimobile-footer);
+  background-color: #57ea1540;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
   -moz-box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
   -webkt-box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.07);
@@ -12980,7 +12980,7 @@ a.card {
   -moz-align-self: center;
   height: 100%;
   line-height: 44px;
-  color: var(--fimobile-footer-text);
+  color: #88ccc9;
   padding: calc(var(--fimobile-padding) - 5px) calc(var(--fimobile-padding) - 10px);
 }
 
@@ -13145,8 +13145,8 @@ a.card {
   --fimobile-footer: #03175a;
   --fimobile-footer-text: #6683e0;
   --fimobile-footer-text-active: var(--fimobile-theme-text);
-  --fimobile-page-bg-1: #001149;
-  --fimobile-page-bg-2: #000000;
+  --fimobile-page-bg-1: #00490b;
+  --fimobile-page-bg-2: #373119;
   --fimobile-page-text: #000000;
   --fimobile-page-link: var(--fimobile-theme-color);
 }

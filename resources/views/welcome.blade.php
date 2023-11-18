@@ -38,7 +38,7 @@
                                                     {{$balance['CDF'][0]}}
                                                     <span class="small text-muted">CDF</span>
                                                 </h4>
-                                                <p class="mb-0 text-muted size-12">Balance</p>
+                                                <p class="mb-0 text-muted size-12">Solde du compte</p>
                                             </div>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                                     {{$balance['USD'][0]}}
                                                     <span class="small text-muted">USD</span>
                                                 </h4>
-                                                <p class="mb-0 text-muted size-12">Balance</p>
+                                                <p class="mb-0 text-muted size-12">Solde du compte</p>
                                             </div>
                                         </div>
                                     </div>
@@ -78,27 +78,27 @@
                                     <i class="nav-icon bi bi-arrow-up-right-circle"></i>
                                 </span>
                             </a>
-                            <p class="text-color-theme size-12 small">Envois</p>
+                            <p class="text-color-theme size-12 small">Envois d'argent</p>
                         </div>
 
                         <div class="col-4 text-center" >
                             <a data-bs-target="#deposit_modal" data-bs-toggle="modal" class="avatar avatar-50 bg-ehaa shadow-sm mb-2 rounded-10 overlay  text-white" href="#" style="color: white;">
                                 <span>
-                                    <i class="nav-icon bi bi-plus-circle"></i>
+                                    <i class="nav-icon bi bi-arrow-clockwise"></i>
                                     
                                 </span>
                             </a>
-                            <p class="text-color-theme size-12 small">Dépôt</p>
+                            <p class="text-color-theme size-12 small">Recharger votre compte</p>
                         </div>
 
                         <div class="col-4 text-center" >
                             <a data-bs-target="#withdraw_modal" data-bs-toggle="modal" class="avatar avatar-50 shadow-sm mb-2 rounded-10 overlay bg-ehaa text-white" href="#" style="color: white;">
                                 <span>
-                                    <i class="bi bi-arrow-down-circle"></i>
+                                    <i class="bi bi-cash-stack"></i>
                                     
                                 </span>
                             </a>
-                            <p class="text-color-theme size-12 small">Retrait</p>
+                            <p class="text-color-theme size-12 small">Retrait d'argent</p>
                         </div>
                     </div>
                 </div>
