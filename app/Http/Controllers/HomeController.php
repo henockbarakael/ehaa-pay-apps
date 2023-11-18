@@ -30,20 +30,13 @@ class HomeController extends Controller
         $url = str_replace('{user_id}', $user_id, 'https://api.ehaa-pay.com/service/user/{user_id}/accounts');
         $client = new Client(['verify' => false]);
         $response = $client->get($url);
-        if ($response->successful()) {
-            $data = $response->json();
+        $statusCode = $response->getStatusCode();
+
+        if ($statusCode >= 200 && $statusCode < 300) {
+            $data = $response->getBody()->getContents();
             $balance = $data['balances_by_currency'];
             $account = $data['account_codes'];
-          
-            return view('welcome',compact('balance','account'));
-            // Utilisez les données de réponse
-            // $data contiendra les données renvoyées par l'API FastAPI
-        } else {
-            // La requête a échoué, gérez l'erreur
-            $statusCode = $response->status();
-            $errorMessage = $response->body();
-            // Traitez l'erreur en conséquence
+            return view('welcome', compact('balance', 'account'));
         }
-        
     }
 }

@@ -7,6 +7,7 @@ use App\Http\Controllers\VerifyNumberController;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Brian2694\Toastr\Toastr;
+use GuzzleHttp\Client as GuzzleHttpClient;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+
 
 class RegisterController extends Controller
 {
@@ -142,20 +144,35 @@ class RegisterController extends Controller
                 'user_id' => $user_id,
             ];
 
-            $response = Http::post($endpoint, $data);
-            $result = $response->json();
-            if ($result['success'] === true) {
-                return response()->json([
-                    'success' => true,
-                    'message' => 'Inscription réussie. Utilisateur: '.$username.' PIN: '.$validatedData['password'],
-                    'redirect' => '/login'
+            $client = new GuzzleHttpClient(['verify' => false]);
+
+            try {
+                $response = $client->post($endpoint, [
+                    'json' => $data,
                 ]);
-            }
-            else {
-                Log::error('Erreur lors de la création de l\'utilisateur: ' . $result);
+
+                $result = json_decode($response->getBody()->getContents(), true);
+                if ($result['success'] === true) {
+                    return response()->json([
+                        'success' => true,
+                        'message' => 'Inscription réussie. Utilisateur: '.$username.' PIN: '.$validatedData['password'],
+                        'redirect' => '/login'
+                    ]);
+                }
+                else {
+                    Log::error('Erreur lors de la création de l\'utilisateur: ' . $result);
+                    return response()->json([
+                        'success' => false,
+                        'errors' => 'Erreur lors de la création de l\'utilisateur. Veuillez contacter le 0828584688 '. $result
+                    ]);
+                }
+            } catch (RequestException $e) {
+                // Handle the exception here
+                $errorMessage = $e->getMessage();
+                Log::error('Erreur! ' . $errorMessage);
                 return response()->json([
                     'success' => false,
-                    'errors' => 'Erreur lors de la création de l\'utilisateur. Veuillez contacter le 0828584688 '. $result
+                    'errors' => 'Erreur! Veuillez contacter le 0828584688 '. $errorMessage
                 ]);
             }
         
