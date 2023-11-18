@@ -133,7 +133,7 @@
                             </button>
 
                             <button type="button" class="btn btn-lg btn-icon-text" onclick="window.location.replace('sendmoney.html');">
-                                <i class="bi bi-plus-circle size-32"></i><span>Dépôt</span>
+                                <i class="bi bi-plus-circle size-32"></i><span>Recharge</span>
                             </button>
 
                             <button type="button" class="btn btn-lg btn-icon-text" onclick="window.location.replace('receivemoney.html');">
