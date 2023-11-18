@@ -133,7 +133,7 @@ class RegisterController extends Controller
             $user_id = $user->id;
 
             
-            $endpoint = 'http://127.0.0.1:8000/service/create_individual';
+            $endpoint = 'https://api.ehaa-pay.com/service/create_individual';
             
             $data = [
                 'first_name' => $firstname,

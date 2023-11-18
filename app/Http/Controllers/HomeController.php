@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $user_id = Auth::user()->id;
-        $url = str_replace('{user_id}', $user_id, 'http://127.0.0.1:8000/service/user/{user_id}/accounts');
+        $url = str_replace('{user_id}', $user_id, 'https://api.ehaa-pay.com/service/user/{user_id}/accounts');
         $response = Http::get($url);
         if ($response->successful()) {
             $data = $response->json();
