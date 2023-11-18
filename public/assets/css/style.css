@@ -12018,7 +12018,7 @@ main {
   top: 0;
   left: 0;
   border-radius: 0 0 var(--fimobile-rounded) var(--fimobile-rounded);
-  background-color: var(--fimobile-header-active);
+  background-color: #101e07;
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
   -webkt-box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
