@@ -110,12 +110,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col align-self-center">
-                                    <h1>15% OFF</h1>
+                                    <h1>Recharge facile</h1>
                                     <p class="size-12 text-muted">
-                                        Facilitez vos paiements en ligne avec Ehaa-Pay!
+                                        Rechargez votre compte à partir de n'importe quel opérateur mobile money.
                                     </p>
                                     <div class="tag border-dashed border-opac">
-                                        BILLPAY15OFF
+                                        Ehaa-Pay
                                     </div>
                                 </div>
                                 <div class="col-6 align-self-center ps-0">
