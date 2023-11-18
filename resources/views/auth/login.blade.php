@@ -1,5 +1,6 @@
 @extends('layouts.signin')
 @section('content')
+{!! Toastr::message() !!}
 <div class="row h-100 overflow-auto">
     <div class="col-12 text-center mb-auto px-0">
         <header class="header">
@@ -41,7 +42,7 @@
 
             {{-- <button type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" onclick="window.location.replace('index.html');"> --}}
             <button id="submit-button" type="submit" class="btn btn-lg btn-default w-100 mb-4 shadow" >
-                Connexion
+                <span id="loader" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span> Connexion
             </button>
         </form>
         <p class="mb-2 text-muted">Vous n'avez pas de compte?</p>
@@ -57,8 +58,14 @@
         $('[data-bs-toggle="tooltip"]').tooltip();
         $('#submit-button').click(function(e) {
             e.preventDefault();
-            
+            $('#loader').removeClass('d-none');
             var formData = $('#login-form').serialize();
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             
             $.ajax({
                 url: "{{ route('signin') }}",
@@ -67,19 +74,35 @@
                 success: function(response) {
                     // Traitement réussi
                     console.log(response);
-                    if (response.success) {
-                        toastr.success(
-                            response.message, 'Success'
-                        ).then(function() {
-                            window.location.href = response.redirect;
-                        });
+                    if (response.success === true) {
+                            window.location.href = "{{ route('accueil') }}";
                     } else {
-                        toastr.error(response.errors, 'Error');
+                        Swal.fire({
+                        title: 'Error',
+                        text: response.errors,
+                        icon: 'error',
+                        width: '300px',
+                        didOpen: function() {
+                            const contentElement = Swal.getContent();
+                            if (contentElement) {
+                                const spanElement = document.createElement('span');
+                                spanElement.innerHTML = response.erros;
+                                spanElement.style.fontSize = '12px';
+                                contentElement.appendChild(spanElement);
+                            }
+                        }
+                    }).then(function() {
+                        location.reload();
+                    });
+                        // toastr.error(response.errors, 'Error');
+                        // location.reload();
                     }
-                    
+                    $('#loader').addClass('d-none');
                 },
                 error: function(xhr, status, error) {
+                    console.log("Erreur AJAX : " + status + " - " + error);
                     var response = xhr.responseJSON;
+                    console.log(response);
                     if (response && response.errors) {
                         if (response.errors.username) {
                             var usernameError = response.errors.username[0];
@@ -105,6 +128,7 @@
                     } else {
                         toastr.error('An error occurred.', 'Error');
                     }
+                    $('#loader').addClass('d-none');
                 }
             });
         });

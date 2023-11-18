@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\VerifyNumberController;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Brian2694\Toastr\Toastr;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -90,6 +91,18 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+        $messages = [
+            'first_name.required' => 'Le Prénom est obligatoire.',
+            'last_name.required' => 'Le Nom est obligatoire.',
+            'gender.required' => 'Le Sexe est obligatoire.',
+            'phone_number.required' => 'Le Numéro de téléphone est obligatoire.',
+            'password.required' => 'Le PIN est obligatoire.',
+            'password.min' => 'Le PIN doit avoir au moins :min chiffres.',
+            'password.max' => 'Le PIN ne peut pas dépasser :max chiffres.',
+            'confirmpassword.required' => 'Le Confirmer le PIN est obligatoire.',
+            'confirmpassword.same' => 'Le PIN et la confirmation doivent correspondre.',
+        ];
+        
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -97,9 +110,7 @@ class RegisterController extends Controller
             'phone_number' => 'required',
             'password' => 'required|min:6|max:6',
             'confirmpassword' => 'required|same:password',
-        ]);
-
-        
+        ], $messages);
 
         $username = $this->generateUsername($validatedData['first_name'], $validatedData['last_name']);
 
@@ -107,7 +118,7 @@ class RegisterController extends Controller
         $phone_number = $verify_number->verify_number($validatedData['phone_number']);
 
         try {
-            $user = User::insert([
+            $user = User::create([
                 'username' => $username,
                 'firstname' => $validatedData['first_name'],
                 'lastname' => $validatedData['last_name'],
@@ -116,13 +127,13 @@ class RegisterController extends Controller
                 'password' => bcrypt($validatedData['password']),
             ]);
 
-            dd($user);
-            
+       
             $firstname = $user->firstname;
             $lastname = $user->lastname;
             $user_id = $user->id;
+
             
-            $endpoint = 'https://api.ehaa-pay.com/service/create_individual';
+            $endpoint = 'http://127.0.0.1:8000/service/create_individual';
             
             $data = [
                 'first_name' => $firstname,
@@ -131,25 +142,30 @@ class RegisterController extends Controller
                 'user_id' => $user_id,
             ];
 
-            dd($data );
-            
             $response = Http::post($endpoint, $data);
             $result = $response->json();
             if ($result['success'] === true) {
-                Alert::success('Compte créé avec succès ! Utilisateur: '.$username.' PIN: '.$validatedData['password'])->autoClose(3000);
-                return redirect()->route('login');
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Inscription réussie. Utilisateur: '.$username.' PIN: '.$validatedData['password'],
+                    'redirect' => '/login'
+                ]);
             }
             else {
-                Alert::error('Erreur lors de la création de l\'utilisateur. Veuillez contacter le 0828584688')->autoClose(3000);
                 Log::error('Erreur lors de la création de l\'utilisateur: ' . $result);
-                return redirect()->back();
+                return response()->json([
+                    'success' => false,
+                    'errors' => 'Erreur lors de la création de l\'utilisateur. Veuillez contacter le 0828584688 '. $result
+                ]);
             }
         
         } catch (\Exception $e) {
             $errorMessage = $e->getMessage();
-            Alert::error('Erreur lors de la création de l\'utilisateur '.$errorMessage)->autoClose(3000);
             Log::error('Erreur lors de la création de l\'utilisateur: ' . $errorMessage);
-            return redirect()->back();
+            return response()->json([
+                'success' => false,
+                'errors' => 'Erreur lors de la création de l\'utilisateur: ' . $errorMessage
+            ]);
         }
 
         

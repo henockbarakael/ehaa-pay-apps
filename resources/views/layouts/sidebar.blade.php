@@ -10,33 +10,20 @@
                         <div class="row">
                             <div class="col-auto">
                                 <figure class="avatar avatar-44 rounded-15">
-                                    <img src="{{ asset('assets/img/photo_defaults.jpg')}}" alt="">
+                                    <img src="{{ asset('assets/img/blank.png')}}" alt="">
                                 </figure>
                             </div>
                             <div class="col px-0 align-self-center">
-                                <p class="mb-1">Admin</p>
-                                <p class="text-muted size-12">Kinshasa-RDC</p>
+                                <p class="mb-1">{{Auth::user()->username}}</p>
+                                <p class="text-muted size-12">{{Auth::user()->phone_number}}</p>
                             </div>
                             <div class="col-auto">
-                                <button class="btn btn-44 btn-light">
+                                <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                                <a href="#" class="btn btn-44 btn-light" tabindex="-1" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">
                                     <i class="bi bi-box-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card bg-opac text-white border-0">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-12">
-                                    <h1 class="display-4">100.00</h1>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="text-muted">Wallet Balance</p>
-                                </div>
-                                <div class="col text-end">
-                                    <p class="text-muted"><a href="">+ Top up</a>
-                                    </p>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -49,10 +36,9 @@
             <div class="col-12">
                 <ul class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">
+                        <a class="nav-link active" aria-current="page" href="{{route('accueil')}}">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-house-door"></i></div>
-                            <div class="col">Dashboard</div>
-                            <div class="arrow"><i class="bi bi-chevron-right"></i></div>
+                            <div class="col">Tableau de bord</div>
                         </a>
                     </li>
 
@@ -67,13 +53,11 @@
                             <li><a class="dropdown-item nav-link" href="">
                                     <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar2"></i></div>
                                     <div class="col">Profile</div>
-                                    <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                 </a></li>
                             <li><a class="dropdown-item nav-link" href="">
                                     <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar-check"></i>
                                     </div>
                                     <div class="col">Paramètre</div>
-                                    <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                                 </a></li>
                         </ul>
                     </li>
@@ -81,7 +65,6 @@
                         <a class="nav-link" href="" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-chat-text"></i></div>
                             <div class="col">Messages</div>
-                            <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                         </a>
                     </li>
 
@@ -89,15 +72,16 @@
                         <a class="nav-link" href="" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-bell"></i></div>
                             <div class="col">Notification</div>
-                            <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="" tabindex="-1">
+                        <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();" tabindex="-1">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-box-arrow-right"></i></div>
                             <div class="col">Déconnexion</div>
-                            <div class="arrow"><i class="bi bi-chevron-right"></i></div>
                         </a>
                     </li>
                 </ul>

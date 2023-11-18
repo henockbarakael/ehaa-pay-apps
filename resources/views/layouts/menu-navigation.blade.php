@@ -2,7 +2,7 @@
     <div class="col-12">
         <ul class="nav nav-pills">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home')}}">
+                <a class="nav-link active" aria-current="page" href="{{route('accueil')}}">
                     <div class="avatar avatar-40 icon"><i class="bi bi-house-door"></i></div>
                     <div class="col">Accueil</div>
                     <div class="arrow"><i class="bi bi-chevron-right"></i></div>

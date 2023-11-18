@@ -39,9 +39,11 @@
         <!-- style css for this template -->
         <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" id="style">
         <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+
+        {{-- <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">  --}}
         <style>
 
-  
             #username:invalid {
                 border-color: #dc3545; /* Couleur rouge */
             }
@@ -93,6 +95,7 @@
     
         <!-- Required jquery and libraries -->
         <script src="{{ asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+        {{-- <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> --}}
         <script src="{{ asset('assets/js/popper.min.js')}}"></script>
         <script src="{{ asset('assets/vendor/bootstrap-5/js/bootstrap.bundle.min.js')}}"></script>
 
@@ -102,6 +105,7 @@
         <!-- Customized jquery file  -->
         <script src="{{ asset('assets/js/main.js')}}"></script>
         <script src="{{ asset('assets/js/color-scheme.js')}}"></script>
+        <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
 
         <!-- PWA app service registration and works -->
         <script src="{{ asset('assets/js/pwa-services.js')}}"></script>
@@ -114,10 +118,12 @@
 
         <!-- swiper js script -->
         <script src="{{ asset('assets/vendor/swiperjs-6.6.2/swiper-bundle.min.js')}}"></script>
-        <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- page level custom script -->
         <script src="{{ asset('assets/js/app.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
+
         @yield('script')
     </body>
 </html>

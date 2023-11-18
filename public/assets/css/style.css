@@ -11296,7 +11296,7 @@ main {
 }
 
 .dark-bg {
-  background-color: #222f5a;
+  /* background-color: #222f5a; */
   /* background-image: url("../img/backgorund-image.svg"); */
   background-repeat: repeat-x;
   background-position: bottom center !important;

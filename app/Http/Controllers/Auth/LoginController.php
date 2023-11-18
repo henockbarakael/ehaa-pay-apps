@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Toastr;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Firebase\JWT\JWT;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 
 class LoginController extends Controller
@@ -80,24 +80,33 @@ class LoginController extends Controller
 
         // Login success
         // Add your code here to handle successful login
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            // Generate a token using JWT
-            $payload = [
-                'username' => $username,
-                'exp' => time() + 3600, // Token expiration time (1 hour)
-            ];
-            // $secretKey = config('app.jwt_secret');
-            $secretKey = Str::random(32);
-            $algorithm = 'HS256';
-
-            $token = JWT::encode($payload, $secretKey, $algorithm);
-
-            // Store the token in the user's session or return it in the response
-            // For example, you can use Laravel's session:
-            session(['token' => $token]);
-            
-            return response()->json(['token' => $token, 'redirect' => $this->redirectTo($request) ]);
+        try {
+            if (Auth::attempt($credentials)) {
+                $request->session()->regenerate();
+        
+                // Generate a token using JWT
+                $payload = [
+                    'username' => $username,
+                    'exp' => time() + 3600, // Token expiration time (1 hour)
+                ];
+                $secretKey = Str::random(32);
+                $algorithm = 'HS256';
+        
+                $token = JWT::encode($payload, $secretKey, $algorithm);
+        
+                // Store the token in the user's session or return it in the response
+                // For example, you can use Laravel's session:
+                session(['token' => $token]);
+        
+                return response()->json(['success' => true, 'token' => $token, 'redirect' => $this->redirectTo($request)]);
+            } else {
+                // Authentication failed
+                return response()->json(['success' => false, 'message' => 'Invalid credentials']);
+            }
+        } catch (\Exception $e) {
+            // Handle the exception
+            $errorMessage = $e->getMessage();
+            return response()->json(['success' => false, 'message' => 'An error occurred during authentication'. $errorMessage]);
         }
     }
 
@@ -132,15 +141,16 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        Toastr::success('Vous avez été déconnecté(e).','Logout');
+        // Toastr::success('Vous avez été déconnecté(e).', 'Logout');
+        Toastr::success('Vous avez été déconnecté(e).', 'Logout');
 
         return redirect('login');
     }
 
     protected function redirectTo(Request $request)
     {
-        Toastr::success('Login successfuly','Success');
-        $this->redirectTo = '/home';
+        
+        $this->redirectTo = '/accueil';
         return $this->redirectTo;
     }
     

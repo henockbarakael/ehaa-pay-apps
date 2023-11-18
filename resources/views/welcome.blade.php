@@ -1,25 +1,22 @@
 @extends('layouts.master')
 @section('content')
+{!! Toastr::message() !!}
             <!-- wallet balance -->
             <div class="card barak-mode shadow-sm mb-4">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-auto">
                             <figure class="avatar avatar-44 rounded-10">
-                                <img src="{{ asset('assets/img/photo_defaults.jpg')}}" alt="">
+                                <img src="{{ asset('assets/img/blank.png')}}" alt="">
                             </figure>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <p class="mb-0 text-color-theme">Admin</p>
-                            <p class="text-muted size-12">Kinshasa-RDC</p>
+                            <p class="mb-0 text-color-theme">{{Auth::user()->username}}</p>
+                            <p class="text-muted size-12">{{Auth::user()->phone_number}}</p>
                         </div>
                         <div class="col-auto">
-                            <a href="addmoney.html" class="btn btn-44 btn-light shadow-sm">
-                                <i class="bi bi-plus-circle"></i>
-                            </a>
-                            <a href="withdraw.html" class="btn btn-44 btn-warning shadow-sm ms-1">
-                                <i class="bi bi-arrow-down-circle"></i>
-                            </a>
+                            <p class="mb-1">N° Compte</p>
+                            <p class="text-muted size-12">{{$account}}</p>
                         </div>
                     </div>
                 </div>
@@ -38,7 +35,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
-                                                    1000000.00
+                                                    {{$balance['CDF'][0]}}
                                                     <span class="small text-muted">CDF</span>
                                                 </h4>
                                                 <p class="mb-0 text-muted size-12">Balance</p>
@@ -53,7 +50,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
-                                                    1000000.00
+                                                    {{$balance['USD'][0]}}
                                                     <span class="small text-muted">USD</span>
                                                 </h4>
                                                 <p class="mb-0 text-muted size-12">Balance</p>

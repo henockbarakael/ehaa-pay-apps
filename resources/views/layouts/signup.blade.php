@@ -39,6 +39,101 @@
         <!-- style css for this template -->
         <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" id="style">
         <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+        {{-- <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> --}}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.css">
+        <style>
+            #first_name:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+            #last_name:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+            #phone_number:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+            #password:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+            #confirmpassword:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+        
+            #firstnameerror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+            #lastnameerror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+            #phonenumbererror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+            #passworderror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+            #confirmpassworderror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+        
+            #firstnameerror[data-bs-original-title]:hover::before,
+            #lastnameerror[data-bs-original-title]:hover::before,
+            #phonenumbererror[data-bs-original-title]:hover::before,
+            #passworderror[data-bs-original-title]:hover::before,
+            #confirmpassworderror[data-bs-original-title]:hover::before,
+            #firstnameerror[data-bs-original-title][data-bs-placement^="top"]::before,
+            #lastnameerror[data-bs-original-title][data-bs-placement^="top"]::before,
+            #phonenumbererror[data-bs-original-title][data-bs-placement^="top"]::before {
+                display: block;
+            }
+
+            #gender:invalid {
+                border-color: #dc3545; /* Couleur rouge */
+            }
+
+            #gendererror::before {
+                content: attr(title);
+                color: #dc3545; /* Couleur rouge */
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                white-space: nowrap;
+            }
+
+            #gendererror[data-bs-original-title]:hover::before,
+            #gendererror[data-bs-original-title][data-bs-placement^="top"]::before {
+                display: block;
+            }
+        </style>
     </head>
     <body class="body-scroll d-flex flex-column h-100" data-page="signup">
 
@@ -76,9 +171,10 @@
         <!-- swiper js script -->
         <script src="{{ asset('assets/vendor/swiperjs-6.6.2/swiper-bundle.min.js')}}"></script>
         <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
-
+        {{-- <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script> --}}
         <!-- page level custom script -->
         <script src="{{ asset('assets/js/app.js')}}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.2/dist/sweetalert2.min.js"></script>
         @yield('script')
     </body>
 </html>

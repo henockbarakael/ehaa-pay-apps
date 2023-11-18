@@ -31,5 +31,5 @@ Route::get('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 
 Route::post('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 'verifyOTP'])->name('verify.otp');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('accueil');
 });
