@@ -118,7 +118,7 @@ class LoginController extends Controller
                     'client_secret' => $clientSecret,
                 ];
     
-                $endpoint = 'http://127.0.0.1:8000/service/login';
+                $endpoint = 'https://api.ehaa-pay.com/service/login';
                 $client = new Client(['verify' => false]);
               
                 $response = $client->post($endpoint, [

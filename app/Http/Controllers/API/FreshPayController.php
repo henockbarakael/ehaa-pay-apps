@@ -61,7 +61,7 @@ class FreshPayController extends Controller
             'operator' => $operator,
         ];
 
-        $endpoint = 'http://127.0.0.1:8000/service/deposit';
+        $endpoint = 'https://api.ehaa-pay.com/service/deposit';
 
         $headers = [
             'Authorization' => 'Bearer ' . $token,
@@ -150,7 +150,7 @@ class FreshPayController extends Controller
             'operator' => $operator,
         ];
 
-        $endpoint = 'http://127.0.0.1:8000/service/send-money';
+        $endpoint = 'https://api.ehaa-pay.com/service/send-money';
 
         $headers = [
             'Authorization' => 'Bearer ' . $token,
@@ -236,7 +236,7 @@ class FreshPayController extends Controller
             'operator' => $operator,
         ];
 
-        $endpoint = 'http://127.0.0.1:8000/service/withdraw';
+        $endpoint = 'https://api.ehaa-pay.com/service/withdraw';
 
         $headers = [
             'Authorization' => 'Bearer ' . $token,
