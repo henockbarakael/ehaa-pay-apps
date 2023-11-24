@@ -26,7 +26,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
-                                        {{number_format($balance['CDF'])}}
+                                        {{number_format($balance['CDF'],2)}}
                                         <span class="small text-muted">CDF</span>
                                     </h4>
                                     <p class="mb-0 text-muted size-12">Solde du compte</p>
