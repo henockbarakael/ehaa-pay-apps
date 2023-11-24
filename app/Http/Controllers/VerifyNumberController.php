@@ -33,6 +33,7 @@ class VerifyNumberController extends Controller
                 return $inputPhone;
             }
     }
+    
     public function operator($number = ''){
         $customer_number = $number;
         $len_number = strlen($number);

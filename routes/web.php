@@ -31,8 +31,22 @@ Route::get('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 
 Route::post('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 'verifyOTP'])->name('verify.otp');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+
     Route::get('/accueil', [App\Http\Controllers\HomeController::class, 'index'])->name('accueil');
-    Route::get('/kelasi', [App\Http\Controllers\HomeController::class, 'index'])->name('kelasi');
-    Route::get('/wallet', [App\Http\Controllers\HomeController::class, 'index'])->name('wallet');
-    Route::get('/history', [App\Http\Controllers\HomeController::class, 'index'])->name('history');
+    Route::get('/history', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
+
+    Route::get('/account', [App\Http\Controllers\AccountController::class, 'show'])->name('account');
+    Route::post('/account/general-information', [App\Http\Controllers\AccountController::class, 'updateGeneralInformation'])->name('account.general');
+    Route::post('/account/auth-information', [App\Http\Controllers\AccountController::class, 'updatePassword'])->name('account.auth');
+
+    Route::get('/wallet', [App\Http\Controllers\WalletController::class, 'index'])->name('wallet');
+
+    Route::get('/deposit', [App\Http\Controllers\API\FreshPayController::class, 'deposit_form'])->name('deposit.form');
+    Route::post('/deposit', [App\Http\Controllers\API\FreshPayController::class, 'deposit_request'])->name('deposit.request');
+
+    Route::get('/send-money', [App\Http\Controllers\API\FreshPayController::class, 'send_money_form'])->name('send.money.form');
+    Route::post('/send-money', [App\Http\Controllers\API\FreshPayController::class, 'send_money_request'])->name('send.money.request');
+
+    Route::get('/withdraw', [App\Http\Controllers\API\FreshPayController::class, 'withdraw_form'])->name('withdraw.form');
+    Route::post('/withdraw', [App\Http\Controllers\API\FreshPayController::class, 'withdraw_request'])->name('withdraw.request');
 });

@@ -13,13 +13,16 @@ return new class extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('account_code');
+            $table->unsignedBigInteger('account_code');
             $table->unsignedBigInteger('customer_id');
             $table->float('balance');
             $table->string('currency');
 
             $table->foreign('customer_id')->references('id')->on('customers');
+            
             $table->timestamps();
+            // Ajout de l'index sur la colonne 'account_code'
+            $table->index('account_code');
         });
     }
 

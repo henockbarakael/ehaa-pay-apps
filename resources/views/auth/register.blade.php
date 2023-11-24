@@ -44,7 +44,7 @@
 
             </div>
             <div class="form-floating is-valid mb-4">
-                <input type="tel" class="form-control form-input @error('phone_number') is-invalid @enderror"  placeholder="Numéro de téléphone" name="phone_number" id="phone_number" required autofocus autocomplete="phone_number">
+                <input oninput="validatePHONE(this)" pattern="[0-9]{10}" inputmode="numeric" minlength="10" maxlength="10" type="tel" class="form-control form-input @error('phone_number') is-invalid @enderror"  placeholder="Numéro de téléphone" name="phone_number" id="phone_number" required autofocus autocomplete="phone_number">
                 <label for="phone_number">Numéro de téléphone</label>
                 <span id="phonenumbererror" class="text-danger text-center" data-bs-toggle="tooltip" data-bs-placement="top" ></span>
 
@@ -73,6 +73,9 @@
 <script>
     function validatePIN(input) {
       input.value = input.value.replace(/\D/g, '').slice(0, 6);
+    }
+    function validatePHONE(input) {
+      input.value = input.value.replace(/\D/g, '').slice(0, 10);
     }
 </script>
 <script>

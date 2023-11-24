@@ -1,3 +1,23 @@
+@if (request()->routeIs('history'))
+<header class="header position-fixed">
+    <div class="row">
+        <div class="col-auto">
+            <a href="javascript:void(0)" target="_self" class="btn btn-light btn-44 menu-btn">
+                <i class="bi bi-list"></i>
+            </a>
+        </div>
+        <div class="col align-self-center text-center">
+            <h5>Transactions</h5>
+        </div>
+        <div class="col text-right" style="margin-right: -100px">
+            <a href="" target="_self" class="btn btn-light btn-44">
+                <i class="bi bi-bell"></i>
+                <span class="count-indicator"></span>
+            </a>
+        </div>
+    </div>
+</header>
+@else   
 <header class="header position-fixed">
     <div class="row">
         <div class="col-auto">
@@ -19,3 +39,4 @@
         </div>
     </div>
 </header>
+@endif

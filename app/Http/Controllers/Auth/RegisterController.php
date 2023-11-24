@@ -109,15 +109,16 @@ class RegisterController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'gender' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|min:10|max:10',
             'password' => 'required|min:6|max:6',
             'confirmpassword' => 'required|same:password',
         ], $messages);
 
         $username = $this->generateUsername($validatedData['first_name'], $validatedData['last_name']);
 
-        $verify_number = new VerifyNumberController;
-        $phone_number = $verify_number->verify_number($validatedData['phone_number']);
+        // $verify_number = new VerifyNumberController;
+        // $phone_number = $verify_number->verify_number($validatedData['phone_number']);
+        $phone_number = $validatedData['phone_number'];
 
         try {
             $user = User::create([
@@ -135,7 +136,7 @@ class RegisterController extends Controller
             $user_id = $user->id;
 
             
-            $endpoint = 'https://api.ehaa-pay.com/service/create_individual';
+            $endpoint = 'http://127.0.0.1:8000/service/create_individual';
             
             $data = [
                 'first_name' => $firstname,
@@ -233,10 +234,10 @@ class RegisterController extends Controller
         $lastNameClean = Str::slug($lastNameLower, '');
 
         // Prendre les deux premiers caractères du nom de famille
-        $lastNameInitials = Str::substr($lastNameClean, 0, 2);
+        $lastNameInitials = Str::substr($lastNameClean, 0, 1);
 
         // Concaténer le prénom et les initiales du nom de famille avec un point ou un trait d'union
-        $username = $firstNameClean . '_' . $lastNameInitials;
+        $username = $lastNameInitials . '.' . $firstNameClean;
 
         return $username;
     }

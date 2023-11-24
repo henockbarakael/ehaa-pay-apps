@@ -70,70 +70,12 @@
         
       }
 
-      .transpagi {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-}
-
       .bg-ehaa {
         background-color: #1fa903;
       }
     
     </style>
     <style>
-            #newpassword:invalid {
-                border-color: #dc3545; /* Couleur rouge */
-            }
-            #password:invalid {
-                border-color: #dc3545; /* Couleur rouge */
-            }
-            #confirmpassword:invalid {
-                border-color: #dc3545; /* Couleur rouge */
-            }
-
-            #currentPassword_error::before {
-                content: attr(title);
-                color: #dc3545; /* Couleur rouge */
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                white-space: nowrap;
-            }
-            #newPassword_error::before {
-                content: attr(title);
-                color: #dc3545; /* Couleur rouge */
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                white-space: nowrap;
-            }
-            #confirmPassword_error::before {
-                content: attr(title);
-                color: #dc3545; /* Couleur rouge */
-                position: absolute;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                white-space: nowrap;
-            }
-
-            #currentPassword_error[data-bs-original-title]:hover::before,
-            #newPassword_error[data-bs-original-title]:hover::before,
-            #confirmPassword_error[data-bs-original-title]:hover::before,
-
-            #currentPassword_error[data-bs-original-title][data-bs-placement^="top"]::before {
-                display: block;
-            }
-            #newPassword_error[data-bs-original-title][data-bs-placement^="top"]::before {
-                display: block;
-            }
-            #confirmPassword_error[data-bs-original-title][data-bs-placement^="top"]::before {
-                display: block;
-            }
-        
         .modal-loading {
             pointer-events: none;
         }
@@ -200,25 +142,25 @@
                             <img src="{{ asset('assets/img/centerbutton.svg')}}" class="nav-icon" alt="">
                         </span>
                         <div class="nav-menu-popover justify-content-between">
-                            <button type="button" data-bs-target="#sendmoney_modal" data-bs-toggle="modal" class="btn btn-lg btn-icon-text">
+                            <button type="button" class="btn btn-lg btn-icon-text">
                                 <i class="bi bi-arrow-up-right-circle size-32"></i><span>Envois</span>
                             </button>
 
-                            <button type="button" data-bs-target="#transfer_modal" data-bs-toggle="modal" class="btn btn-lg btn-icon-text" >
-                                <i class="bi bi-arrow-right-circle size-32"></i><span>Transfert</span>
+                            <button type="button" class="btn btn-lg btn-icon-text" >
+                                <i class="bi bi-plus-circle size-32"></i><span>Recharge</span>
                             </button>
 
-                            <button type="button" data-bs-target="#withdraw_modal" data-bs-toggle="modal" class="btn btn-lg btn-icon-text">
+                            <button type="button" class="btn btn-lg btn-icon-text">
                                 <i class="bi bi-arrow-down-left-circle size-32"></i><span>Retrait</span>
                             </button>
                         </div>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->routeIs('account') ? 'active' : '' }}" href="{{ route('account') }}">
+                    <a class="nav-link {{ request()->routeIs('kelasi') ? 'active' : '' }}" href="{{ route('kelasi') }}">
                         <span>
-                            <i class="nav-icon bi bi-person-circle"></i>
-                            <span class="nav-text">Compte</span>
+                            <i class="nav-icon bi bi-gift"></i>
+                            <span class="nav-text">Kelasi</span>
                         </span>
                     </a>
                 </li>
@@ -245,24 +187,38 @@
                 </div>
                 
                     <div class="modal-body text-center">
-                        <form id="depositForm" class="row h-100 mb-1">
+                        <form id="depositForm" class="row h-100 mb-4">
                             @csrf
                             <div class="col-12">
-                                <div id="loading_indicator" class="d-none"></div>
-                                <div class="form-group form-floating  mb-3">
-                                    <input type="tel" class="form-control" name="phone_number" id="phone_number" required autofocus autocomplete="off">
-                                    <label for="phone_number">Numéro déposant</label>
+                                <!-- ... Vos champs de formulaire ... -->
+                                <div id="loading_indicator" class="d-none">
+                                    <!-- Affichez ici votre loader ou compteur -->
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-control" name="operator" id="operator">
+                                        <option selected=""></option>
+                                        <option value="orange">Orange money</option>
+                                        <option value="airtel">Airtel money</option>
+                                        <option value="mpesa">Mpesa</option>
+                                    </select>
+                                    <label for="operator">Opérateur</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-group form-floating  mb-3">
-                                    <input type="number" class="form-control" name="amount"  id="amount" required autofocus autocomplete="off">
+                                    <input type="tel" class="form-control" name="phone_number" id="phone_number">
+                                    <label for="phone_number">Numéro de téléphone</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group form-floating  mb-3">
+                                    <input type="number" class="form-control" name="amount"  id="amount">
                                     <label for="amount">Montant</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating mb-3">
-                                    <select class="form-control" id="currency" name="currency" required autofocus autocomplete="off">
+                                    <select class="form-control" id="currency" name="currency">
                                         <option selected=""></option>
                                         <option value="CDF">CDF</option>
                                         <option value="USD">USD</option>
@@ -289,23 +245,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <form id="withdrawForm" class="row h-100 mb-1">
+                    <form id="withdrawForm" class="row h-100 mb-4">
                         <div class="col-12">
                             <div id="loading_indicator" class="d-none"></div>
                             <div class="form-group form-floating  mb-3">
-                                <input type="tel" class="form-control" name="phone_number" id="phone_number" required autofocus autocomplete="off">
+                                <input type="tel" class="form-control" name="phone_number" id="phone_number">
                                 <label for="phone_number">Numéro bénéficiaire</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group form-floating  mb-3">
-                                <input type="number" class="form-control" name="amount"  id="amount" required autofocus autocomplete="off">
+                                <input type="number" class="form-control" name="amount"  id="amount">
                                 <label for="amount">Montant</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                                <select class="form-control" id="currency" name="currency" required autofocus autocomplete="off">
+                                <select class="form-control" id="currency" name="currency">
                                     <option selected=""></option>
                                     <option value="CDF">CDF</option>
                                     <option value="USD">USD</option>
@@ -331,28 +287,22 @@
                 </div>
                 <div class="modal-body text-center">
                     
-                    <form id="sendmoneyForm" class="row h-100 mb-1">
+                    <form id="sendmoneyForm" class="row h-100 mb-4">
                         <div class="col-12">
                             <div class="form-group form-floating  mb-3">
-                                <input type="text" class="form-control" name="receipt_name"  id="receipt_name" required autofocus autocomplete="off">
-                                <label for="receipt_name">Nom du bénéficiaire</label>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group form-floating  mb-3">
-                                <input type="tel" class="form-control" name="phone_number" id="phone_number" required autofocus autocomplete="off">
+                                <input type="tel" class="form-control" name="phone_number" id="phone_number">
                                 <label for="phone_number">Numéro bénéficiaire</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group form-floating  mb-3">
-                                <input type="number" class="form-control" name="amount"  id="amount" required autofocus autocomplete="off">
+                                <input type="number" class="form-control"   id="amount">
                                 <label for="amount">Montant</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                                <select class="form-control" id="currency" name="currency" required autofocus autocomplete="off">
+                                <select class="form-control" id="currency" name="currency">
                                     <option selected=""></option>
                                     <option value="CDF">CDF</option>
                                     <option value="USD">USD</option>

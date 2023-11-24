@@ -12610,7 +12610,7 @@ main {
   background-color: var(--fimobile-card-color);
   color: var(--fimobile-card-text);
   border-radius: var(--fimobile-rounded);
-  border-color: var(--fimobile-theme-bordercolor);
+  border-color: #353635;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 2px 0px #ffffff;
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 2px 0px #ffffff;
   -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07), inset 0 2px 0px #ffffff;
@@ -12771,7 +12771,7 @@ a.card {
 
 .list-group.bg-none .list-group-item {
   background-color: transparent;
-  border-color: var(--fimobile-theme-bordercolor);
+  border-color: #1d5e1e;
 }
 
 /* chat list */

@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
@@ -26,18 +29,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user_id = Auth::user()->id;
-        $url = str_replace('{user_id}', $user_id, 'https://api.ehaa-pay.com/service/user/{user_id}/accounts');
-        $client = new Client(['verify' => false]);
-        $response = $client->get($url);
-        $statusCode = $response->getStatusCode();
+        $userId = Auth::user()->id;
+        $user = User::find($userId);
+        $balance = $user->getBalancesByCurrency();
+        $account = User::getAccountCode($userId);
+        return view('welcome', compact('balance', 'account'));
+        
+    }
 
-        if ($statusCode >= 200 && $statusCode < 300) {
-            $data = $response->getBody()->getContents();
-            $responseData = json_decode($data, true);
-            $balance = $responseData['balances_by_currency'];
-            $account = $responseData['account_codes'];
-            return view('welcome', compact('balance', 'account'));
-        }
+    public function history(){
+        $userId = Auth::user()->id;
+        $user = User::findOrFail($userId);
+        $data = $user->getAllTransactions();
+        return view('history', compact('data'));
     }
 }

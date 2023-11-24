@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-auto">
                                 <figure class="avatar avatar-44 rounded-15">
-                                    <img src="{{ asset('assets/img/blank.png')}}" alt="">
+                                    <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="">
                                 </figure>
                             </div>
                             <div class="col px-0 align-self-center">
@@ -38,7 +38,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('accueil')}}">
                             <div class="avatar avatar-40 rounded icon"><i class="bi bi-house-door"></i></div>
-                            <div class="col">Tableau de bord</div>
+                            <div class="col">Accueil</div>
                         </a>
                     </li>
 
@@ -50,7 +50,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item nav-link" href="">
+                            <li><a class="dropdown-item nav-link" href="{{ route('account') }}">
                                     <div class="avatar avatar-40 rounded icon"><i class="bi bi-calendar2"></i></div>
                                     <div class="col">Profile</div>
                                 </a></li>

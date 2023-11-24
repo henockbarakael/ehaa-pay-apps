@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Firebase\JWT\JWT;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class LoginController extends Controller
@@ -55,59 +58,101 @@ class LoginController extends Controller
 
     public function signin(Request $request)
     {
-
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
         ], [
-            'username.required' => 'Nom d\'utilisateur requis',
+            'username.required' => 'Identifiant requis',
             'password.required' => 'Mot de passe requis',
         ]);
 
-        // Perform login logic
-        $username = $credentials['username'];
-        $password = $credentials['password'];
+        $identifier = $request->input('username');
+        $password = $request->input('password');
 
-    
+        $isUsername = false;
+        $isPhoneNumber = false;
 
-        if ($this->isInvalidUsername($username)) {
-            return response()->json(['errors' => ['username' => ['Nom d\'utilisateur invalide!']]], 422);
+        // Vérifier si l'identifiant correspond à un nom d'utilisateur
+        $user = User::where('username', $identifier)->first();
+        if ($user) {
+            $isUsername = true;
         }
 
-        if ($this->isInvalidPassword($username, $password)) {
-            return response()->json(['errors' => ['password' => ['Mauvais mot de passe!']]], 422);
+        // Vérifier si l'identifiant correspond à un numéro de téléphone
+        $user = User::where('phone_number', $identifier)->first();
+        if ($user) {
+            $isPhoneNumber = true;
         }
 
-        // Login success
-        // Add your code here to handle successful login
+        // Utiliser la valeur de $isUsername et $isPhoneNumber selon vos besoins
+        if ($isUsername) {
+            // L'identifiant correspond à un nom d'utilisateur
+            $credentials = [
+                'username' => $identifier,
+                'password' => $password
+            ];
+            
+        } elseif ($isPhoneNumber) {
+            // L'identifiant correspond à un numéro de téléphone
+            $credentials = [
+                'phone_number' => $identifier,
+                'password' => $password
+            ];
+        } else {
+            // L'identifiant ne correspond ni à un nom d'utilisateur ni à un numéro de téléphone
+            return response()->json(['errors' => ['username' => ['L\'identifiant ne correspond ni à un nom d\'utilisateur ni à un numéro de téléphone']]], 422);
+        }
+
         try {
             if (Auth::attempt($credentials)) {
+               
                 $request->session()->regenerate();
-        
-                // Generate a token using JWT
+
+                $user = User::find(Auth::user()->id);
+                $customerAuth = $user->getCustomerAuthCredentials();
+                $clientID = $customerAuth['client_id'];
+                $clientSecret = $customerAuth['client_secret'];
+
                 $payload = [
-                    'username' => $username,
-                    'exp' => time() + 3600, // Token expiration time (1 hour)
+                    'client_id' => $clientID,
+                    'client_secret' => $clientSecret,
                 ];
-                $secretKey = Str::random(32);
-                $algorithm = 'HS256';
-        
-                $token = JWT::encode($payload, $secretKey, $algorithm);
-        
-                // Store the token in the user's session or return it in the response
-                // For example, you can use Laravel's session:
-                session(['token' => $token]);
-        
+    
+                $endpoint = 'http://127.0.0.1:8000/service/login';
+                $client = new Client(['verify' => false]);
+              
+                $response = $client->post($endpoint, [
+                    'json' => $payload,
+                ]);
+    
+                $data = json_decode($response->getBody(), true);
+                $token = $data['access_token'];
+
+                // session(['token' => $token]);
+                Session::put('access_token', $token);
+    
                 return response()->json(['success' => true, 'token' => $token, 'redirect' => $this->redirectTo($request)]);
             } else {
-                // Authentication failed
-                return response()->json(['success' => false, 'message' => 'Invalid credentials']);
+                // L'authentification a échoué
+                return response()->json(['success' => false, 'message' => 'Identifiants invalides']);
             }
+        } catch (\GuzzleHttp\Exception\RequestException $e) {
+            // Récupérez l'erreur de la requête HTTP
+            $response = $e->getResponse();
+            $statusCode = $response->getStatusCode();
+            $errorMessage = json_decode($response->getBody(), true)['detail'];
+            Log::error('Erreur: ' . $errorMessage);
+    
+            // Gérez l'erreur selon vos besoins
+            // Par exemple, vous pouvez retourner une réponse JSON avec un message d'erreur
+            return response()->json(['success' => false, 'message' => $errorMessage], $statusCode);
         } catch (\Exception $e) {
-            // Handle the exception
+            // Gérez l'exception selon vos besoins
             $errorMessage = $e->getMessage();
-            return response()->json(['success' => false, 'message' => 'An error occurred during authentication'. $errorMessage]);
+            Log::error('Erreur: ' . $errorMessage);
+            return response()->json(['success' => false, 'message' => 'Une erreur s\'est produite lors de l\'authentification'. $errorMessage]);
         }
+
     }
 
     private function isInvalidUsername($username)
@@ -119,6 +164,17 @@ class LoginController extends Controller
         }
 
         return false; // Valid username
+    }
+
+    private function isInvalidPhone($phone_number)
+    {
+        $validPhone = User::pluck('phone_number')->toArray();
+
+        if (!in_array($phone_number, $validPhone)) {
+            return true; // Invalid phone_number
+        }
+
+        return false; // Valid phone_number
     }
 
     private function isInvalidPassword($username, $password)

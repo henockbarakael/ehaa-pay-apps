@@ -22,8 +22,8 @@
         <form id="login-form" class="was-validated needs-validation" novalidate="">
             @csrf
             <div class="form-group form-floating mb-4 is-valid">
-                <input type="text" class="form-control @error('username') is-invalid @enderror"  id="username" name="username" placeholder="Nom d'utilisateur" required autofocus autocomplete="username">
-                <label class="form-control-label" for="username">Nom d'utilisateur</label>
+                <input type="text" class="form-control @error('username') is-invalid @enderror"  id="username" name="username" placeholder="Nom d'utilisateur ou numéro de téléphone" required autofocus autocomplete="identifier">
+                <label class="form-control-label" for="identifier">Identifiant ou Téléphone</label>
                 <span id="usernameerror" class="text-danger text-center" data-bs-toggle="tooltip" data-bs-placement="top" ></span>
             </div>
 
