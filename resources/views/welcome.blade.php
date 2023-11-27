@@ -106,8 +106,9 @@
                     </div>
                 </div>
             </div>
+            
             <!-- offers banner -->
-            <div class="row mb-4">
+            {{-- <div class="row mb-4">
                 <div class="col-12">
                     <div class="card theme-bg text-center">
                         <div class="card-body">
@@ -128,6 +129,88 @@
                         </div>
                     </div>
                 </div>
+            </div> --}}
+
+            <!-- service provider -->
+            <div class="row mb-3">
+                <div class="col">
+                    <h6 class="title">Nos Services</h6>
+                </div>
+            </div>
+            <div class="row mb-1">
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 shadow-sm rounded-10 bg-danger text-white">
+                                        <i class="bi bi-heart vm"></i>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-0 size-12"><span class="text-color-theme fw-medium">EHAA-PHARMACIE</span>
+                                    </p>
+                                    <p><small class="size-12 text-muted">Pharmacie en ligne 24h/24</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 shadow-sm rounded-10 bg-warning text-white">
+                                        <i class="bi bi-tv vm"></i>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-0 size-12"><span class="text-color-theme fw-medium">EHAA-TV</span>
+                                    </p>
+                                    <p><small class="size-12 text-muted">Réabonnement</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 shadow-sm rounded-10 bg-success text-white">
+                                        <i class="bi bi-shop vm"></i>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-0 size-12"><span class="text-color-theme fw-medium">EHAA-WENZE</span>
+                                    </p>
+                                    <p><small class="size-12 text-muted">Boutique en ligne</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <div class="avatar avatar-44 shadow-sm rounded-10 bg-info text-white">
+                                        <i class="bi bi-house-door vm"></i>
+                                    </div>
+                                </div>
+                                <div class="col align-self-center ps-0">
+                                    <p class="mb-0 size-12"><span class="text-color-theme fw-medium">EHAA-KELASY</span>
+                                    </p>
+                                    <p><small class="size-12 text-muted">Frais académique</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Modal de chargement -->
