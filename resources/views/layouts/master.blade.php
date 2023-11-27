@@ -77,7 +77,7 @@
 }
 
       .bg-ehaa {
-        background-color: #1fa903;
+        background-color: #0c3502;
       }
     
     </style>
