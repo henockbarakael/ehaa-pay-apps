@@ -52,11 +52,10 @@
                 </div>  
             </div>
 
-            {{-- <div class="row mb-4"> --}}
-                <div class="card text-center">
-                  <div class="card-body">
-                    <div class="row" >
-                    
+           
+            <div class="card text-center mb-4">
+              <div class="card-body">
+                <div class="row" >
                         <div class="col-4 text-center" >
                             <a data-bs-target="#sendmoney_modal" data-bs-toggle="modal" class="avatar avatar-50 shadow-sm mb-2 rounded-10 overlay text-white bg-ehaa" href="#" style="color: white;">
                                 <span>
@@ -65,16 +64,6 @@
                             </a>
                             <p class="text-color-theme size-12 small">Envois</p>
                         </div>
-
-                        {{-- <div class="col-4 text-center" >
-                            <a data-bs-target="#deposit_modal" data-bs-toggle="modal" class="avatar avatar-50 bg-ehaa shadow-sm mb-2 rounded-10 overlay  text-white" href="#" style="color: white;">
-                                <span>
-                                    <i class="nav-icon bi bi-arrow-clockwise"></i>
-                                    
-                                </span>
-                            </a>
-                            <p class="text-color-theme size-12 small">Dépôt</p>
-                        </div> --}}
 
                         <div class="col-4 text-center" >
                             <a data-bs-target="#transfer_modal" data-bs-toggle="modal" class="avatar avatar-50 bg-ehaa shadow-sm mb-2 rounded-10 overlay  text-white" href="#" style="color: white;">
@@ -95,10 +84,10 @@
                             </a>
                             <p class="text-color-theme size-12 small">Retrait</p>
                         </div>
-                    </div>
-                  </div>
                 </div>
-            {{-- </div> --}}
+              </div>
+            </div>
+        
 
             <!-- service provider -->
             <div class="row mb-3">
