@@ -10,7 +10,7 @@
                         </div>
                         <div class="col px-0 align-self-center">
                             <p class="mb-0 text-color-theme"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->firstname.' '.Auth::user()->lastname}}</a></p>
-                            <p class="text-muted size-12">Tél. :<a href="{{ route('account') }}" class="text-white">{{Auth::user()->phone_number}}</a>| #ID :<a href="{{ route('account') }}" class="text-white">{{$account}}</a></p>
+                            <p class="text-muted size-12">Tél. :<a href="{{ route('account') }}" class="text-white">{{Auth::user()->phone_number}}</a> | ID :<a href="{{ route('account') }}" class="text-white">{{$account}}</a></p>
                         </div>
                     </div>
                 </div>
