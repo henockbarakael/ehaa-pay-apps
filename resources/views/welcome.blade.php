@@ -52,7 +52,7 @@
                 </div>  
             </div>
 
-            <div class="row mb-4">
+            {{-- <div class="row mb-4"> --}}
                 <div class="card text-center">
                   <div class="card-body">
                     <div class="row" >
@@ -98,7 +98,7 @@
                     </div>
                   </div>
                 </div>
-            </div>
+            {{-- </div> --}}
 
             <!-- service provider -->
             <div class="row mb-3">
