@@ -15,50 +15,46 @@
                     </div>
                 </div>
                 <div class="card btn-service text-white border-0 text-center">
-                    <!-- <div class="card  mb-3" style="border: 0px;"> -->
-                        <div class="card-body">
-                            <div class="row">
-                            <div class="col-6 col-md-6">
-                                <div class="card  border-0">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
-                                                    {{number_format($balance['CDF'],2)}}
-                                                    <span class="small text-muted">CDF</span>
-                                                </h4>
-                                                <p class="mb-0 text-muted size-12">Solde du compte</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-6 col-md-6">
+                        <div class="card  border-0">
+                          <div class="card-body">
+                              <div class="row">
+                                <div class="col-12">
+                                    <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
+                                      {{number_format($balance['CDF'],2)}}
+                                      <span class="small text-muted">CDF</span>
+                                    </h4>
+                                    <p class="mb-0 text-muted size-12">Solde du compte</p>
                                 </div>
-                            </div>
-                            <div class="col-6 col-md-6">
-                                <div class="card  border-0">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-6">
+                        <div class="card  border-0">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-12">
+                                <h4 class="fw-normal mb-2" style="font-size: 15px; font-weight:bold">
                                                     {{number_format($balance['USD'],2)}}
                                                     <span class="small text-muted">USD</span>
-                                                </h4>
-                                                <p class="mb-0 text-muted size-12">Solde du compte</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </h4>
+                                <p class="mb-0 text-muted size-12">Solde du compte</p>
+                              </div>
                             </div>
+                          </div>
                         </div>
-
-                        </div>
-                    <!-- </div> -->
-                </div>
-
-                
+                      </div>
+                    </div>
+                  </div>
+                </div>  
             </div>
 
             <div class="row mb-4">
-                <div class="text-center">
+                <div class="card text-center">
+                  <div class="card-body">
                     <div class="row" >
                     
                         <div class="col-4 text-center" >
@@ -100,32 +96,9 @@
                             <p class="text-color-theme size-12 small">Retrait</p>
                         </div>
                     </div>
+                  </div>
                 </div>
             </div>
-
-            <!-- offers banner -->
-            {{-- <div class="row mb-4">
-                <div class="col-12">
-                    <div class="card theme-bg text-center">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col align-self-center">
-                                    <h1>Recharge</h1>
-                                    <p class="size-12 text-muted">
-                                        Rechargez votre compte à partir de n'importe quel <br>opérateur mobile money.
-                                    </p>
-                                    <div class="tag border-dashed border-opac">
-                                        Ehaa-Pay
-                                    </div>
-                                </div>
-                                <div class="col-6 align-self-center ps-0">
-                                    <img src="{{ asset('assets/img/offergraphics-1.png')}}" alt="" class="mw-50">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
 
             <!-- service provider -->
             <div class="row mb-3">
