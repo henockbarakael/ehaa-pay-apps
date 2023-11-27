@@ -11,10 +11,7 @@
                         <div class="col px-0 align-self-center">
                             <p class="mb-0 text-color-theme"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->firstname.' '.Auth::user()->lastname}}</a></p>
                             <p class="text-muted size-12"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->phone_number}}</a></p>
-                        </div>
-                        <div class="col-auto">
-                            <p class="mb-1">N° Compte</p>
-                            <a href="{{ route('account') }}" class="text-muted size-12">{{ $account }}</a>
+                            <p class="text-muted size-12"><a href="{{ route('account') }}" class="text-white">{{ $account }}</a></p>
                         </div>
                     </div>
                 </div>
