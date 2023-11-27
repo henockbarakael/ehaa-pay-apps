@@ -174,7 +174,7 @@
     <!-- Page ends-->
 
       <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="background-color: #143208;">
         <div class="container">
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item">
