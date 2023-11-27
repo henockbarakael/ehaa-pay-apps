@@ -9,7 +9,7 @@
                           <a class="avatar avatar-44 rounded-10" href="{{ route('account') }}" ><img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt=""></a>
                         </div>
                         <div class="col px-0 align-self-center">
-                            <p class="mb-0 text-color-theme"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->username}}</a></p>
+                            <p class="mb-0 text-color-theme"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->firstname.' '.Auth::user()->lastname}}</a></p>
                             <p class="text-muted size-12"><a href="{{ route('account') }}" class="text-white">{{Auth::user()->phone_number}}</a></p>
                         </div>
                         <div class="col-auto">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- offers banner -->
             {{-- <div class="row mb-4">
                 <div class="col-12">
