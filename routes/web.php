@@ -22,11 +22,8 @@ Auth::routes();
 Route::get('/signin', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/signin', [App\Http\Controllers\Auth\LoginController::class, 'signin'])->name('signin');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-
-// ------------------------------ register ---------------------------------//
 Route::get('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/signup', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('signup');
-
 Route::get('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 'showVerifyForm'])->name('otp');
 Route::post('/verify-otp', [App\Http\Controllers\Auth\RegisterController::class, 'verifyOTP'])->name('verify.otp');
 

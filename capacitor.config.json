@@ -1,0 +1,8 @@
+{
+  "appId": "com.ehaapay.apps",
+  "appName": "Ehaa-Pay",
+  "webDir": "public",
+  "server": {
+    "androidScheme": "https"
+  }
+}

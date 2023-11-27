@@ -142,6 +142,7 @@ class FreshPayController extends Controller
 
         $data = [
             'account_code' => $accountCode,
+            'user_name' => $user_name,
             'user_number' => $user_number,
             'receipt_name' => $receipt_name,
             'receipt_number' => $receipt_number,
